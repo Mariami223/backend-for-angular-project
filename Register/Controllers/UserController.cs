@@ -1,60 +1,73 @@
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Configuration;
-using Register.Models;
 
-namespace Register.Controllers
-{
-    [Route("api/[controller]")]
-    [ApiController]
-    [EnableCors("AllowOrigin")]
+//using System.Configuration;
+//using Microsoft.AspNetCore.Mvc;
+//using Microsoft.Data.SqlClient;
+//using Microsoft.Extensions.Configuration;
+//using Register.Models;
 
-    public class UserController : ControllerBase
-    {
-        private readonly IConfiguration _config;
-        public UserController(IConfiguration config)
-        {
-            _config = config;
-        }
+//namespace Register.Controllers
+//{
+//    [Route("api/[controller]")]
+//    [ApiController]
+//    [EnableCors("AllowOrigin")]
 
-        private readonly User[] _users =
-        {
-            new User {userName = "test1",userPassword = "1234"},
-            new User {userName = "test2",userPassword = "1234"},
-            new User {userName = "test3",userPassword = "1234"},
-        };
+//    public class UserController : ControllerBase
+//    {
+//        private readonly IConfiguration _config;
+//        public UserController(IConfiguration config)
+//        {
+//            _config = config;
+
+//        }
 
 
 
 
 
-        [HttpPost("CreateUser")]
-
-        public IActionResult Create([FromBody] User user)
-
-        {
-            var CreateUser = _users.FirstOrDefault(u => u.userName == user.userName && u.userPassword == user.userPassword);
-
-            if (CreateUser != null)
-            {
-                return Ok("გილოცავთ თქვენ წარმატებულად გაიარეთ ავტორიზაცია");
-            } else
-            {
-                return BadRequest("ასეთი მომხმარებელი არ არსებობს,შეიყვანეთ სწორი სახელი და პაროლი");
-            }
-
-         
-        }
+//        private readonly User[] _users =
+//        {
+//            new User {userName = "test1",userPassword = "1234"},
+//            new User {userName = "test2",userPassword = "1234"},
+//            new User {userName = "test3",userPassword = "1234"},
+//        };
 
 
 
-        private class EnableCorsAttribute : Attribute
-        {
-            public EnableCorsAttribute(string v)
-            {
-            }
-        }
-    }
-}
+
+
+
+
+
+
+//        //[HttpPost("CreateUser")]
+
+//        //public IActionResult Create([FromBody] User user)
+
+//        //{
+//        //    var CreateUser = _users.FirstOrDefault(u => u.userName == user.userName && u.userPassword == user.userPassword);
+
+//        //    if (CreateUser != null)
+//        //    {
+//        //        return Ok("გილოცავთ თქვენ წარმატებულად გაიარეთ ავტორიზაცია");
+//        //    }
+//        //    else
+//        //    {
+//        //        return BadRequest("ასეთი მომხმარებელი არ არსებობს,შეიყვანეთ სწორი სახელი და პაროლი");
+//        //    }
+
+
+//        //}
+
+
+
+//        private class EnableCorsAttribute : Attribute
+//        {
+//            public EnableCorsAttribute(string v)
+//            {
+//            }
+//        }
+//    }
+//}
 
 /*
  * https://localhost:7153/
